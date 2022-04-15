@@ -6,7 +6,7 @@
         </div>
         <div class="card-body">
             <div class="text-center">
-                {{ link_to_route('game.create', __('Inicia un nuevo juego'), [], ['class' => 'btn btn-outline-primary']) }}
+                {{ link_to_route('game', __('Inicia un nuevo juego'), [], ['class' => 'btn btn-outline-primary']) }}
             </div>
         </div>
     </div>

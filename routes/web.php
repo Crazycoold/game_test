@@ -18,4 +18,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('game', GameController::class)->except(['destroy']);
+Route::get('game', [GameController::class, 'index'])->name('game');
+Route::post('new', [GameController::class, 'new'])->name('new');
+Route::get('play', [GameController::class, 'play'])->name('play');
+Route::post('record', [GameController::class, 'record'])->name('record');
+Route::post('round', [GameController::class, 'round'])->name('round');
