@@ -74,6 +74,7 @@
                                     <div class="ttt-element">
                                         @if (!$prepareData['gameOver'])
                                             {!! Form::open(['route' => 'record', 'method' => 'post']) !!}
+                                            {{ csrf_field() }}
                                             {!! Form::hidden('game_id', $game->id) !!}
                                             {!! Form::hidden('game_round_id', $round) !!}
                                             {!! Form::hidden('game_row', $row) !!}
@@ -104,6 +105,7 @@
             <div class="row">
                 <div class="col-sm text-center pb-3">
                     {!! Form::open(['route' => 'round', 'method' => 'post']) !!}
+                    {{ csrf_field() }}
                     {!! Form::hidden('game_id', $game->id) !!}
                     {!! Form::submit(__('Jugar de nuevo'), ['class' => 'btn btn-outline-primary']) !!}
                     {!! Form::close() !!}

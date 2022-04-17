@@ -17,6 +17,7 @@
             @endif
             <br>
             {!! Form::open(['route' => 'new', 'method' => 'post']) !!}
+            {{ csrf_field() }}
             <div class="nput-group flex-nowrap">
                 {{ Form::label('Jugador # 1') }}
                 {{ Form::text('first_player', old('first_player'), [

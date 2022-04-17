@@ -6,6 +6,7 @@
         </div>
         <div class="card-body">
             {!! Form::open(['route' => 'join', 'method' => 'post']) !!}
+            {{ csrf_field() }}
             <div class="nput-group flex-nowrap">
                 {{ Form::label('Código de partida') }}
                 {{ Form::text('code', old('code'), [
