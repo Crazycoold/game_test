@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('content')
     <div class="card">
-        <div class="card-header alert alert-info">
-            Inicia una nueva partida
+        <div class="card-header alert alert-info text-center">
+            <b><em>Código de partida:</em></b> {{ $game->id . '-' . $round }}
         </div>
         <div class="card-body">
             <div class="text-center font-italic f-size-1-5 mb-3">
@@ -22,32 +22,32 @@
             @endif
             @if (empty($prepareData['gameHistories']))
                 <div class="text-center">
-                    {{ __('Start the game') }}
+                    {{ __('Comenzar el juego') }}
                 </div>
             @endif
             @if ($isFullGameField || $prepareData['gameOver'])
                 <div class="text-center">
-                    {{ __('The game is over') }}
+                    {{ __('El juego ha terminado') }}
                 </div>
                 @if ($prepareData['playerWinner'])
                     <div class="text-center f-size-2">
-                        {{ __('Winner') }} "{{ strtoupper($game::getPlayerTypes($prepareData['playerWinner'])) }}"
+                        {{ __('Ganador') }} "{{ strtoupper($game::getPlayerTypes($prepareData['playerWinner'])) }}"
                     </div>
                 @else
                     <div class="text-center f-size-2">
-                        {{ __('A draw') }}
+                        {{ __('Es un empate') }}
                     </div>
                 @endif
             @else
                 @if ($prepareData['playerType'] && $prepareData['playerType'] === $firstPlayerType)
                     <div class="d-flex align-items-center justify-content-center">
-                        <div>{{ __('To walk') }}&nbsp;</div>
+                        <div>{{ __('Turno de ') }}&nbsp;</div>
                         <div class="mb-2 f-size-2">{{ $game::getPlayerTypes($secondPlayerType) }}</div>
                     </div>
                 @endif
                 @if ($prepareData['playerType'] && $prepareData['playerType'] === $secondPlayerType)
                     <div class="d-flex align-items-center justify-content-center">
-                        <div>{{ __('To walk') }}&nbsp;</div>
+                        <div>{{ __('Turno de ') }}&nbsp;</div>
                         <div class="mb-2 f-size-2">{{ $game::getPlayerTypes($firstPlayerType) }}</div>
                     </div>
                 @endif
@@ -105,14 +105,17 @@
                 <div class="col-sm text-center pb-3">
                     {!! Form::open(['route' => 'round', 'method' => 'post']) !!}
                     {!! Form::hidden('game_id', $game->id) !!}
-                    {!! Form::submit(__('Play again'), ['class' => 'btn btn-outline-primary']) !!}
+                    {!! Form::submit(__('Jugar de nuevo'), ['class' => 'btn btn-outline-primary']) !!}
                     {!! Form::close() !!}
                 </div>
                 <div class="col-sm text-center pb-3">
-                    {{ link_to_route('game', __('New game'), [], ['class' => 'btn btn-outline-success']) }}
+                    {{ link_to_route('game', __('Nuevo juego'), [], ['class' => 'btn btn-outline-success']) }}
                 </div>
                 <div class="col-sm text-center pb-3">
-                    {{ link_to_route('game', __('Statistics'), [], ['class' => 'btn btn-outline-info']) }}
+                    {{ link_to_route('join-me', __('Unirme a partida'), [], ['class' => 'btn btn-outline-warning']) }}
+                </div>
+                <div class="col-sm text-center pb-3">
+                    {{ link_to_route('statistics', __('Estadísticas'), [], ['class' => 'btn btn-outline-info']) }}
                 </div>
             </div>
         </div>

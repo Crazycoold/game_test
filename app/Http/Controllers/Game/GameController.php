@@ -17,6 +17,29 @@ class GameController extends Controller
         return view('/game/new_game');
     }
 
+    public function joinMe()
+    {
+        return view('/game/join');
+    }
+
+    public function join(Request $request)
+    {
+        $code = explode("-", $request->code);
+        $game = game::find($code[0]);
+        abort_unless($game, 404);
+        return redirect()->route('play', [
+            'game' => $game,
+            'token' => $game->token,
+            'round' => $code[1] ?? null,
+        ]);
+    }
+
+    public function statistics()
+    {
+        $game = game::all();
+        return view('game.statistics', compact('game'));
+    }
+
     private static function generateToken(): string
     {
         return (string) Str::uuid();

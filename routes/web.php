@@ -23,3 +23,6 @@ Route::post('new', [GameController::class, 'new'])->name('new');
 Route::get('play', [GameController::class, 'play'])->name('play');
 Route::post('record', [GameController::class, 'record'])->name('record');
 Route::post('round', [GameController::class, 'round'])->name('round');
+Route::get('join-me', [GameController::class, 'joinMe'])->name('join-me');
+Route::post('join', [GameController::class, 'join'])->name('join');
+Route::get('statistics', [GameController::class, 'statistics'])->name('statistics');

@@ -14,17 +14,20 @@ class game extends Model
         return $this->hasOne(round::class, 'game_id', 'id')->latest();
     }
 
+    public function countGameRounds()
+    {
+        return $this->hasMany(round::class, 'game_id', 'id')->count();
+    }
+
     public static function getPlayerTypes(?int $type = null)
     {
         $types = [
             self::FIRST_PLAYER_TYPE => 'x',
             self::SECOND_PLAYER_TYPE => 'o',
         ];
-
         if ($type !== null) {
             return $types[$type] ?? null;
         }
-
         return $types;
     }
 }

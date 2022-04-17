@@ -20,8 +20,9 @@
             <div class="nput-group flex-nowrap">
                 {{ Form::label('Jugador # 1') }}
                 {{ Form::text('first_player', old('first_player'), [
-                    'class' => 'form-control' . ($errors->has('first_player') ? ' is-invalid' : ''),
+                    'class' => 'text-uppercase form-control' . ($errors->has('first_player') ? ' is-invalid' : ''),
                     'placeholder' => __('Nombre Jugador # 1'),
+                    'autocomplete' => 'off',
                 ]) }}
                 @if ($errors->has('first_player'))
                     <div class="invalid-feedback">
@@ -31,8 +32,9 @@
                 <br>
                 {{ Form::label('Jugador # 2') }}
                 {{ Form::text('second_player', old('second_player'), [
-                    'class' => 'form-control' . ($errors->has('second_player') ? ' is-invalid' : ''),
+                    'class' => 'text-uppercase form-control' . ($errors->has('second_player') ? ' is-invalid' : ''),
                     'placeholder' => __('Nombre Jugador # 2'),
+                    'autocomplete' => 'off',
                 ]) }}
                 @if ($errors->has('second_player'))
                     <div class="invalid-feedback">

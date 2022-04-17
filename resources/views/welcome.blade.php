@@ -7,6 +7,7 @@
         <div class="card-body">
             <div class="text-center">
                 {{ link_to_route('game', __('Inicia un nuevo juego'), [], ['class' => 'btn btn-outline-primary']) }}
+                {{ link_to_route('join-me', __('Inicia un nuevo juego'), [], ['class' => 'btn btn-outline-warning']) }}
             </div>
         </div>
     </div>
