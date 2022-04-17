@@ -13,7 +13,7 @@ use Illuminate\Support\Str;
 class GameController extends Controller
 {
     public function index()
-    {
+    { 
         return view('/game/new_game');
     }
 
