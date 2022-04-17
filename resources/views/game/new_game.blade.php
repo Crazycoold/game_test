@@ -20,7 +20,7 @@
             {{ csrf_field() }}
             <div class="nput-group flex-nowrap">
                 {{ Form::label('Jugador # 1') }}
-                {{ Form::text('first_player', old('first_player'), [
+                {{ Form::text('first_player', 'Jugador # 1', [
                     'class' => 'text-uppercase form-control' . ($errors->has('first_player') ? ' is-invalid' : ''),
                     'placeholder' => __('Nombre Jugador # 1'),
                     'autocomplete' => 'off',
@@ -32,7 +32,7 @@
                 @endif
                 <br>
                 {{ Form::label('Jugador # 2') }}
-                {{ Form::text('second_player', old('second_player'), [
+                {{ Form::text('second_player', 'Jugador # 2', [
                     'class' => 'text-uppercase form-control' . ($errors->has('second_player') ? ' is-invalid' : ''),
                     'placeholder' => __('Nombre Jugador # 2'),
                     'autocomplete' => 'off',
