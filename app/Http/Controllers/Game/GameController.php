@@ -13,6 +13,7 @@ use Illuminate\Support\Str;
 class GameController extends Controller
 {
     //Prueba GitKraken
+    //Prueba #2 GitKraken
     public function index()
     { 
         return view('/game/new_game');
