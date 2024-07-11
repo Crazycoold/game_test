@@ -14,6 +14,7 @@ class GameController extends Controller
 {
     //Prueba GitKraken
     //Prueba #2 GitKraken
+    //Hola Mundo
     public function index()
     { 
         return view('/game/new_game');
